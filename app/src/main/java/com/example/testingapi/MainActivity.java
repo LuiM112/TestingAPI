@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button search;
     private String artistString;
     private String songString;
+    private String apiKey;
 
 
     @Override
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         artistString = artist_text.getText().toString();
         song_text = findViewById(R.id.song_name);
         songString = song_text.getText().toString();
+        apiKey = key.getKey();
 
 
         search = findViewById(R.id.button);
@@ -46,12 +48,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 lyricFinder lf = retrofitClient.getRetrofitInstance().create(lyricFinder.class);
-                Call<Data> call = lf.getAllData(artistString,songString);
+                Call<Data> call = lf.getAllData(artistString,songString,apiKey);
 
                 call.enqueue(new Callback<Data>() {
                     @Override
                     public void onResponse(Call<Data> call, Response<Data> response) {
                         Log.e(TAG, "onResponse: code :" + response.code() );
+
+                        Log.e(TAG, "onResponse: " + response.body());
 
                     }
 
