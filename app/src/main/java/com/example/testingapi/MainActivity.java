@@ -36,17 +36,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        artist_text = findViewById(R.id.artist_name);
-        artistString = artist_text.getText().toString();
-        song_text = findViewById(R.id.song_name);
-        songString = song_text.getText().toString();
-        apiKey = key.getKey();
-
-
         search = findViewById(R.id.button);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                artist_text = findViewById(R.id.artist_name);
+                artistString = artist_text.getText().toString();
+                Log.e(TAG, "onCreate: String" + artistString);
+                song_text = findViewById(R.id.song_name);
+                songString = song_text.getText().toString();
+                Log.e(TAG, "onCreate: String" + songString);
+                apiKey = key.getKey();
                 lyricFinder lf = retrofitClient.getRetrofitInstance().create(lyricFinder.class);
                 Call<Data> call = lf.getAllData(artistString,songString,apiKey);
 

@@ -9,8 +9,8 @@ public interface lyricFinder {
 
     @GET("matcher.lyrics.get?")
     Call<Data> getAllData(
-            @Query("q_artist=") String artist_search_parameter,
-            @Query("q_track=") String track_search_parameters,
-            @Query("apikey=") String apiKey
+            @Query("q_artist") String artist_search_parameter,
+            @Query("q_track") String track_search_parameters,
+            @Query("apikey") String apiKey
     );
 }
