@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Data> call, Response<Data> response) {
                         Log.e(TAG, "onResponse: code :" + response.code() );
 
-                        ArrayList<Data.da>
                     }
 
                     @Override
