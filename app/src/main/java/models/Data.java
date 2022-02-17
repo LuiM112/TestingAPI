@@ -3,38 +3,42 @@ package models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
     @SerializedName("message")
     @Expose
-    private String message;
+    private ArrayList<data> data;
 
-    @SerializedName("body")
-    @Expose
-    private String body;
-
-    @SerializedName("lyrics")
-    @Expose
-    private String lyrics;
-
-    @SerializedName("lyrics_body")
-    @Expose
-    private String lyrics_body;
-
-    public String getMessage() {
-        return message;
+    public ArrayList<Data.data> getData() {
+        return data;
     }
 
-    public String getBody() {
-        return body;
+    public void setData(ArrayList<Data.data> data) {
+        this.data = data;
     }
 
-    public String getLyrics() {
-        return lyrics;
+    public class data{
+        String header;
+        String body;
+
+        public String getHeader() {
+            return header;
+        }
+
+        public void setHeader(String header) {
+            this.header = header;
+        }
+
+        public String getBody() {
+            return body;
+        }
+
+        public void setBody(String body) {
+            this.body = body;
+        }
     }
 
-    public String getLyrics_body() {
-        return lyrics_body;
-    }
+
 }
