@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">testing API</string>
+    <string name="search">Search</string>
+    <string name="artist_name">artist Name</string>
+    <string name="song_name">Song name</string>
+    <string name="textview">TextView</string>
+</resources>
